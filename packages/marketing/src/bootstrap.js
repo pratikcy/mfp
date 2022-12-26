@@ -6,6 +6,7 @@ import App from "./App";
 // Mount function to start up the app
 const mount = (el, { onNavigate, defaultHistory }) => {
   const history = defaultHistory || createMemoryHistory();
+
   if (onNavigate) {
     history.listen(onNavigate);
   }
@@ -15,6 +16,7 @@ const mount = (el, { onNavigate, defaultHistory }) => {
   return {
     onParentNavigate({ pathname: nextPathname }) {
       const { pathname } = history.location;
+
       if (pathname !== nextPathname) {
         history.push(nextPathname);
       }
